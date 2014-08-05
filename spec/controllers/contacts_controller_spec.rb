@@ -29,6 +29,7 @@ describe "Contacts controller" do
   it "delete contacts" do
     visit "/contacts/#{@joe.id}/edit"
     click_button "DELETE"
+    expect(page).to have_content("Contacts")
     expect(page).not_to have_content("Joe Blow")
   end
 
