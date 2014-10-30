@@ -12,11 +12,9 @@ get '/contacts' do
 	erb :"contacts/index"
 end
 
-post '/contacts' do
-	# gets values from form through new.erb
+post '/contacts' do	# gets values from form through new.erb
 	@contact = Contact.create(params[:contact])
-	redirect	:"contacts/#{@contact.id}"
-	# redirect to line 22
+	redirect	:"contacts/#{@contact.id}" # redirect to line 20
 end
 
 get '/contacts/:contact_id' do
@@ -24,14 +22,14 @@ get '/contacts/:contact_id' do
 	erb :"contacts/show"
 end
 
-put '/contacts/:contact_id' do
+put '/contacts/:contact_id' do # getting data from contacts/edit.erb form
 	@contact = Contact.find(params[:contact_id])
 	@contact.update(params[:contact])
 	redirect	:"contacts/#{@contact.id}"
 end
 
-delete '/contacts/:contact_id' do
+delete '/contacts/:contact_id' do	# getting data from contacts/edit.erb form
 	@contact = Contact.find(params[:contact_id])
 	@contact.destroy
-	redirect :"contacts"
+	redirect :"contacts" # redirect to line 10
 end

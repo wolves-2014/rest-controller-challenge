@@ -3,8 +3,7 @@ get '/contacts/:contact_id/addresses/new' do
 	erb :"addresses/new"
 end
 
-# coming from /addresses/new form
-post '/contacts/:contact_id/addresses' do
+post '/contacts/:contact_id/addresses' do # coming from /addresses/new form
 	@contact = Contact.find(params[:contact_id])
 	@address = @contact.addresses.create(params[:address])
 	erb :"contacts/show"
