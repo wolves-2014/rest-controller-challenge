@@ -1,9 +1,14 @@
 <div class="container">
-  <h1>Edit contact</h1>
+  <%if @contact %>
+    <h1>Edit contact: <%=@contact.email %></h1>
+  <%end%>
   <form action="/contacts/<%= @contact.id %>" method="POST">
-    <input type="submit" value="DELETE" />
+    <input type="hidden" name="_method" value="put" />
+    <input type="submit" value="EDIT"/>
+    <%= erb :"contacts/_form"%>
   </form>
   <form action="/contacts/<%= @contact.id %>" method="POST">
-    <%= erb :"contacts/_form", locals: { contact: @contact } %>
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="DELETE" />
   </form>
 </div>

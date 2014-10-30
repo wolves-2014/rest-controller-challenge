@@ -1,9 +1,15 @@
 <div class="container">
-  <h1>Edit contact</h1>
-  <form action="/contacts/<%= @contact.id %>/addresses/<%= @address.id %>" method="POST">
-    <input type="submit" value="DELETE" />
-  </form>
+  <h1><%=@contact.email%></h1>
+  <h2>Would you like to edit this address?</h2>
+
   <form action="/contacts/<%= @contact.id %>/addresses/<%= @address.id %>" method="POST">
     <%= erb :"addresses/_form", locals: { contact: @contact, address: @address } %>
+    <input type="hidden" name="_method" value="put"/>
+    <input type="submit" value="EDIT" />
+  </form>
+
+  <form action="/contacts/<%= @contact.id %>/addresses/<%= @address.id %>" method="POST">
+    <input type="hidden" name="_method" value="delete"/>
+    <input type="submit" value="DELETE" />
   </form>
 </div>

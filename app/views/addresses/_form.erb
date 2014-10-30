@@ -1,22 +1,22 @@
+  <%if @address %>
+  <p>Address to be edited:</p>
+  <p><%=@address.street %></p>
+  <p><%=@address.city %></p>
+  <p><%=@address.state %></p>
+  <p><%=@address.zip %></p>
+  <% end %>
+
 <ul>
   <li>
-    <label for="address_street">Street</label>
-    <input id="address_street" type="text" name="address[street]" value="<%= address.street %>" />
+    <input id="address_street" type="text" name="address[street]" placeholder="Street" />
   </li>
   <li>
-    <label for="address_city">City</label>
-    <input id="address_city" type="text" name="address[city]" value="<%= address.city %>" />
+    <input id="address_city" type="text" name="address[city]" placeholder="City" />
   </li>
   <li>
-    <label for="address_state">State</label>
-    <input id="address_state" type="text" name="address[state]" value="<%= address.state %>" />
+    <input id="address_state" type="text" name="address[state]" placeholder="State" />
   </li>
   <li>
-    <label for="address_zip">Zip</label>
-    <input id="address_zip" type="text" name="address[zip]" value="<%= address.zip %>" />
-  </li>
-
-  <li>
-    <input type="submit" value="Save" />
+    <input id="address_zip" type="text" name="address[zip]" placeholder="Zip" />
   </li>
 </ul>
