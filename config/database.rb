@@ -31,12 +31,22 @@ DB_NAME = db.path[1..-1]
 #   if ENV['RACK_ENV'] is set.  If ENV['RACK_ENV'] is not set, it defaults
 #   to :development
 
-ActiveRecord::Base.establish_connection(
+# args = {
+#   :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
+#   :host     => 'localhost',
+#   :port     => nil,
+#   :username => nil,
+#   :password => nil,
+#   :database => DB_NAME,
+#   :encoding => 'utf8'
+# }
+
+ActiveRecord::Base.establish_connection(#args)
   :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
   :host     => db.host,
   :port     => db.port,
   :username => db.user,
-  :password => db.password,
+  :password => 'password',
   :database => DB_NAME,
   :encoding => 'utf8'
 )
