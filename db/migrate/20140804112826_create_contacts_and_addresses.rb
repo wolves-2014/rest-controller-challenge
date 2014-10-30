@@ -6,7 +6,7 @@ class CreateContactsAndAddresses < ActiveRecord::Migration
 
     create_table :addresses do |t|
       t.belongs_to :contact
-      t.string :street, :city, :state, :zip
+      t.string :street, :city, :state, :zip, :address_type
     end
 
   end

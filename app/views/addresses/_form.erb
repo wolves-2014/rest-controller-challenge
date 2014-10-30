@@ -1,20 +1,25 @@
 <ul>
   <li>
-    <label for="address_street">Street</label>
-    <input id="address_street" type="text" name="address[street]" value="<%= address.street %>" />
+    <!-- <label for="address_type">Address Type</label> -->
+    <input id="address_type" type="text" name="address[address_type]" value="<%= address.address_type %>" placeholder="Residential, Work, etc." />
   </li>
   <li>
-    <label for="address_city">City</label>
-    <input id="address_city" type="text" name="address[city]" value="<%= address.city %>" />
+    <!-- <label for="address_street">Street</label> -->
+    <input id="address_street" type="text" name="address[street]" value="<%= address.street %>" placeholder="Street" />
   </li>
   <li>
-    <label for="address_state">State</label>
-    <input id="address_state" type="text" name="address[state]" value="<%= address.state %>" />
+    <!-- <label for="address_city">City</label> -->
+    <input id="address_city" type="text" name="address[city]" value="<%= address.city %>" placeholder="City" />
   </li>
   <li>
-    <label for="address_zip">Zip</label>
-    <input id="address_zip" type="text" name="address[zip]" value="<%= address.zip %>" />
+    <!-- <label for="address_state">State</label> -->
+    <input id="address_state" type="text" name="address[state]" value="<%= address.state %>" placeholder="State"/>
   </li>
+  <li>
+    <!-- <label for="address_zip">Zip</label> -->
+    <input id="address_zip" type="text" name="address[zip]" value="<%= address.zip %>" placeholder="Zip" />
+  </li>
+
 
   <li>
     <input type="submit" value="Save" />
