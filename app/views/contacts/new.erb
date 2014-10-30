@@ -1,6 +1,8 @@
 <div class="container">
   <h1>New contact</h1>
   <form action="/contacts" method="POST">
+		<!-- Gets form from _form.erb, sets contact hash values -->
+		<!-- posts to /contacts in the controller -->
     <%= erb :"contacts/_form", locals: { contact: @contact } %>
   </form>
 </div>

@@ -16,8 +16,14 @@ get '/contacts/:contact_id/addresses/:address_id/edit' do
 	erb :"addresses/edit"
 end
 
-post '/contacts/:contact_id/addresses/:address_id' do
-	@contact = Contact.find(params[:contact_id])
-	@address = @contact.addresses.create(params[:address])
-	erb :"contacts/show"
+put '/contacts/:contact_id/addresses/:address_id' do
+	@address = Address.find(params[:address_id])
+	@address.update(params[:address])
+	redirect	:"contacts/#{params[:contact_id]}"
+end
+
+delete '/contacts/:contact_id/addresses/:address_id' do
+	@address = Address.find(params[:address_id])
+	@address.destroy
+	redirect	:"contacts/#{params[:contact_id]}"
 end

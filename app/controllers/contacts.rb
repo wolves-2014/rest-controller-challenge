@@ -13,8 +13,10 @@ get '/contacts' do
 end
 
 post '/contacts' do
+	# gets values from form through new.erb
 	@contact = Contact.create(params[:contact])
 	redirect	:"contacts/#{@contact.id}"
+	# redirect to line 22
 end
 
 get '/contacts/:contact_id' do
@@ -22,7 +24,7 @@ get '/contacts/:contact_id' do
 	erb :"contacts/show"
 end
 
-post '/contacts/:contact_id' do
+put '/contacts/:contact_id' do
 	@contact = Contact.find(params[:contact_id])
 	@contact.update(params[:contact])
 	redirect	:"contacts/#{@contact.id}"
