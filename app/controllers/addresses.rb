@@ -13,6 +13,25 @@ post '/contacts/:id/addresses' do
   redirect to "/contacts"
 end
 
+
+get '/contacts/:id/addresses/:address_id/edit' do
+  @id = params[:id]
+  @address_id = params[:address_id]
+  @contact = Contact.find(@id)
+  @address = Address.find(@address_id)
+
+  erb :"addresses/edit"
+end
+
+put '/contacts/:id/addresses/:address_id' do
+  @contact_id = params[:id]
+  @address_id = params[:address_id]
+  @address = Address.find(@address_id)
+  @address.update(params[:address])
+  @address.save
+  redirect to "/contacts/#{@contact_id}"
+end
+
 # get '/contacts/:id/addresses' do
 #   redirect to "/contacts"
 # end

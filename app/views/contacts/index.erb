@@ -4,6 +4,9 @@
     <ul>
       <li><a href="/contacts/<%=contact.id %>"><%= contact.name %></a></li>
       <li><%= contact.email %></li>
+      <% contact.addresses.each  do |address| %>
+        <li><%= address.street %></li>
+      <% end %>
     </ul>
     <hr>
   <% end %>
