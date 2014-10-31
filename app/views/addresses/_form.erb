@@ -1,7 +1,7 @@
 <ul>
   <li>
     <label for="address_street">Street</label>
-    <input id="address_street" type="text" name="address[street]" value="<%= address.street %>" />
+    <input id="address_street" type="text" name="address[street]" value="<%= address.street if address %>" />
   </li>
   <li>
     <label for="address_city">City</label>
