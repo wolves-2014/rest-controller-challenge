@@ -8,14 +8,18 @@ get '/contacts/:contact_id/edit' do
 end
 
 get '/my_contacts' do
-	@contacts = User.all
+	user = User.find(session[:user_id])
+	@requests = user.requests
+	@contacts = user.contacts
 	erb :"contacts/index"
 end
 
 post '/contacts' do	# gets values from form through new.erb
-	@contact = User.create(params[:contact])
+	@contact = User.find(session[:user_id]).contacts.create(params[:contact])
 	redirect	:"contacts/#{@contact.id}" # redirect to line 20
 end
+
+
 
 get '/contacts/:contact_id' do
 	@contact = User.find(params[:contact_id])

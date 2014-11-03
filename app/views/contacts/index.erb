@@ -1,9 +1,28 @@
 <div class="container">
   <h1>Contacts</h1>
+
+  <% @requests.each do |request| %>
+    <p><%= request.requester.name %> would like to recieve your contacts</p>
+    <form action='/contact_request/approve' method="POST" >
+      <input type="submit" value="Approve" />
+      <input type="hidden" name="request_id" value="<%= request.id %>" />
+    </form>
+    <form action='/contact_request/delete' method="POST" >
+      <input type="hidden" name="_method" value="DELETE"/>
+      <input type="submit" value="Decline" />
+      <input type="hidden" name="request_id" value="<%= request.id %>" />
+    </form>
+  <% end %>
+
+
   <% @contacts.each do |contact| %>
     <ul>
       <li><a href="/contacts/<%=contact.id %>"><%= contact.name %></a></li>
       <li><%= contact.email %></li>
+      <form action="/contact_request" method="POST">
+        <input type="submit" value="Request" />
+        <input type="hidden" name="contact_id" value="<%= contact.id %>" />
+      </form>
     </ul>
     <hr>
   <% end %>
